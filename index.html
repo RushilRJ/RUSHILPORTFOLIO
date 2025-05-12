@@ -2,10 +2,16 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Rushil Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rushil Sharma | Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
-    html {
-      scroll-behavior: smooth;
+    :root {
+      --main-bg: #f0fdf4;
+      --accent: #43a047;
+      --accent-light: #e8f5e9;
+      --text-dark: #1a3c1b;
+      --card-bg: #ffffff;
     }
 
     * {
@@ -15,66 +21,54 @@
     }
 
     body {
-      font-family: 'Segoe UI', sans-serif;
-      background-color: #f0fdf4;
-      color: #1a3c1b;
+      font-family: 'Inter', sans-serif;
+      background-color: var(--main-bg);
+      color: var(--text-dark);
+      line-height: 1.6;
     }
 
     header {
       background: linear-gradient(to right, #43a047, #66bb6a);
       color: white;
-      padding: 3rem 2rem;
+      padding: 3rem 1.5rem;
       text-align: center;
     }
 
     header h1 {
       font-size: 2.8rem;
+      font-weight: 700;
     }
 
     header p {
       font-size: 1.1rem;
-      opacity: 0.9;
-    }
-
-    .quote {
-      margin-top: 1rem;
-      font-style: italic;
-      font-size: 1.1rem;
-      color: #c8e6c9;
+      margin-top: 0.5rem;
+      opacity: 0.95;
     }
 
     nav {
       display: flex;
       justify-content: center;
-      background-color: #e8f5e9;
-      padding: 1rem;
-      gap: 2rem;
+      flex-wrap: wrap;
+      background-color: var(--accent-light);
+      padding: 1rem 0;
+      gap: 1.5rem;
       position: sticky;
       top: 0;
-      z-index: 1000;
+      z-index: 100;
       border-bottom: 1px solid #c8e6c9;
     }
 
     nav a {
       text-decoration: none;
-      color: #1a3c1b;
-      font-weight: bold;
-      position: relative;
+      color: var(--text-dark);
+      font-weight: 600;
+      padding: 0.5rem 1rem;
+      border-radius: 6px;
+      transition: background 0.2s;
     }
 
-    nav a::after {
-      content: "";
-      position: absolute;
-      width: 0%;
-      height: 2px;
-      bottom: -4px;
-      left: 0;
-      background-color: #388e3c;
-      transition: width 0.3s ease-in-out;
-    }
-
-    nav a:hover::after {
-      width: 100%;
+    nav a:hover {
+      background-color: #c8e6c9;
     }
 
     section {
@@ -84,199 +78,155 @@
     }
 
     .highlight-box {
-      background-color: white;
+      background-color: var(--card-bg);
       border-radius: 12px;
       padding: 2rem;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-      transition: transform 0.3s ease;
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.06);
+      transition: transform 0.3s;
     }
 
     .highlight-box:hover {
-      transform: scale(1.02);
+      transform: translateY(-4px);
     }
 
-    .experience:hover + .projects {
-      opacity: 1;
-      transform: translateY(0);
-      pointer-events: auto;
+    h2 {
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+      color: var(--accent);
+      border-left: 5px solid var(--accent);
+      padding-left: 0.5rem;
     }
 
-    .projects {
-      margin-top: 2rem;
-      display: flex;
-      gap: 1rem;
-      flex-wrap: wrap;
-      opacity: 0;
-      transform: translateY(30px);
-      pointer-events: none;
-      transition: all 0.5s ease;
+    ul {
+      padding-left: 1.2rem;
     }
 
-    .project-card {
-      background-color: #ffffff;
-      border: 2px solid #c8e6c9;
-      border-radius: 10px;
-      padding: 1rem;
-      flex: 1 1 calc(45% - 2rem);
-      min-width: 250px;
-      box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.05);
+    li {
+      margin-bottom: 0.5rem;
     }
 
-    .skills {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 1.5rem;
-      margin-top: 2rem;
-    }
-
-    .skill-card {
-      background-color: white;
-      border-left: 5px solid #66bb6a;
-      padding: 1.2rem;
-      border-radius: 10px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-      transition: transform 0.3s ease;
-    }
-
-    .skill-card:hover {
-      transform: scale(1.05);
-    }
-
-    .interests {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
-      margin-top: 2rem;
-    }
-
-    .interest-card {
-      flex: 1 1 calc(50% - 1rem);
-      background: #ffffff;
-      border-left: 4px solid #66bb6a;
-      padding: 1rem;
-      border-radius: 8px;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+    p, li {
+      font-size: 1rem;
     }
 
     footer {
       background-color: #1b5e20;
       color: white;
       text-align: center;
-      padding: 1rem;
+      padding: 2rem 1rem;
+      font-size: 0.95rem;
       margin-top: 2rem;
     }
 
+    footer a {
+      color: #c8e6c9;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
     @media (max-width: 600px) {
-      .project-card, .interest-card {
-        flex: 1 1 100%;
+      header h1 {
+        font-size: 2rem;
       }
 
-      header h1 {
-        font-size: 10px;
+      nav {
+        gap: 1rem;
+      }
+
+      section {
+        padding: 2.5rem 1rem;
       }
     }
   </style>
 </head>
 <body>
   <header>
-    <h1>RUSHIL SHARMA</h1>
-    <p>Computer Science Student | State-Level Chess Player</p>
-    <p class="quote">"Every move counts — in chess and in code."</p>
+    <h1>Rushil Sharma</h1>
+    <p>B.Tech Computer Science Student | Tech & Chess Enthusiast</p>
   </header>
 
   <nav>
-    <a href="#about">About</a>
+    <a href="#summary">Summary</a>
+    <a href="#education">Education</a>
     <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
     <a href="#experience">Experience</a>
     <a href="#contact">Contact</a>
   </nav>
 
-  <section id="about">
+  <section id="summary">
     <div class="highlight-box">
-      <h2>About Me</h2>
-      <p>I’m a passionate technologist blending code with strategy. Whether it’s through AI models or chess moves, I strive to solve problems smartly. I’ve built chatbots, led teams, and competed across the board.</p>
+      <h2>Professional Summary</h2>
+      <p>I am a passionate and driven Computer Science student with a strong foundation in software development, problem-solving, and competitive programming. I'm enthusiastic about leveraging technology to solve complex real-world problems, with special interest in software development, AI, and innovation.</p>
+    </div>
+  </section>
+
+  <section id="education">
+    <div class="highlight-box">
+      <h2>Academic Credentials</h2>
+      <ul>
+        <li><strong>B.Tech (Ongoing)</strong> – Computer Science, South Asian University, New Delhi</li>
+      
+      </ul>
     </div>
   </section>
 
   <section id="skills">
     <div class="highlight-box">
-      <h2>Skills & Strengths</h2>
-      <div class="skills">
-        <div class="skill-card">
-          <h3>Python Development</h3>
-          <p>Efficient scripting, automation, and backend logic.</p>
-        </div>
-        <div class="skill-card">
-          <h3>Web Design</h3>
-          <p>Modern HTML/CSS/JS sites that are clean and interactive.</p>
-        </div>
-        <div class="skill-card">
-          <h3>Chess Strategy</h3>
-          <p>State-level competitor with deep game intuition.</p>
-        </div>
-        <div class="skill-card">
-          <h3>Team Leadership</h3>
-          <p>Led school chess and coding teams to success.</p>
-        </div>
-      </div>
+      <h2>Technical Skills</h2>
+      <ul>
+        <li><strong>Programming:</strong> Python, C, SQL, JavaScript</li>
+        <li><strong>Web Development:</strong> HTML, CSS</li>
+        <li><strong>Design & Editing Tools:</strong> Canva, GIMP, Shotcut, Filmora, Capcut, Audacity</li>
+        <li><strong>Problem Solving & Competitive Coding</strong></li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="highlight-box">
+      <h2>Projects & Competitions</h2>
+      <ul>
+        <li><strong>Women's Safety Chatbot:</strong> Secured 2nd place in a tech competition.</li>
+        <li><strong>Medical Hackathon:</strong> Top 50 finalist at VIT Bhopal with an innovative medical model.</li>
+        <li><strong>Computer Science Contests:</strong> Multiple participations and notable placements.</li>
+      </ul>
     </div>
   </section>
 
   <section id="experience">
-    <div class="highlight-box experience">
-      <h2>Experience</h2>
-      <p>Hover here to see some of the key projects I’ve worked on!</p>
-    </div>
+    <div class="highlight-box">
+      <h2>Internships & Training</h2>
+      <ul>
+        <li><strong>India Space Lab Internship:</strong> Worked on drones, CanSat/CubeSat, astronomy, and space entrepreneurship.</li>
+        <li><strong>Communication & Graphic Design Course:</strong> Ongoing (South Asian University)</li>
+      </ul>
 
-    <div class="projects">
-      <div class="project-card">
-        <h3>Women's Safety Chatbot</h3>
-        <p>Secured 2nd place in a tech competition for developing a safety-focused chatbot for women.</p>
-      </div>
-      <div class="project-card">
-        <h3>Medical Hackathon</h3>
-        <p>Top 50 finalist at VIT Bhopal with an innovative health-monitoring system.</p>
-      </div>
-      <div class="project-card">
-        <h3>India Space Lab Internship</h3>
-        <p>Worked on drones, CanSat/CubeSat systems, and astronomy tools during this prestigious internship.</p>
-      </div>
-      <div class="project-card">
-        <h3>Chess Captain & Coach</h3>
-        <p>Led my school chess team to multiple victories. Mentored young players in strategy and discipline.</p>
-      </div>
-    </div>
-
-    <div class="interests">
-      <div class="interest-card">
-        <h3>Competitive Programming</h3>
-        <p>I thrive on coding challenges and logical puzzles that keep me sharp.</p>
-      </div>
-      <div class="interest-card">
-        <h3>Chess Strategy</h3>
-        <p>Deep thinking and foresight on the board mirror my approach to software architecture.</p>
-      </div>
-      <div class="interest-card">
-        <h3>AI + Innovation</h3>
-        <p>I'm fascinated by intelligent systems and using AI to solve real problems.</p>
-      </div>
-      <div class="interest-card">
-        <h3>Leadership</h3>
-        <p>From team captain to project lead, I enjoy guiding ideas from concept to execution.</p>
-      </div>
+      <h3 style="margin-top:2rem;">Leadership & Extracurricular</h3>
+      <ul>
+        <li>State-Level Chess Player</li>
+        <li>Captain & Coach – School Chess Team</li>
+      </ul>
     </div>
   </section>
 
   <section id="contact">
     <div class="highlight-box">
       <h2>Contact</h2>
-      <p>Email: rusilsharma2019@gmail.com</p>
-      <p>LinkedIn: <a href="https://www.linkedin.com/in/rushil-sharma-3b31b5318" target="_blank">rushil-sharma-3b31b5318</a></p>
+    
+     
+      <p><strong>Email:</strong> rusilsharma2019@gmail.com</p>
+      <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/rushil-sharma-3b31b5318" target="_blank">rushil-sharma-3b31b5318</a></p>
+      <p><strong>GitHub:</strong> <a href="https://github.com/RushilRJ/RUSHILPORTFOLIO.git" target="_blank">RushilRJ/RUSHILPORTFOLIO</a></p>
     </div>
   </section>
 
   <footer>
-    Rushil Sharma  SAU/CS/BTECH(CSE)/2024/57
+     2025 Rushil Sharma | South Asian University<br>
+    <a href="https://github.com/RushilRJ/RUSHILPORTFOLIO.git" target="_blank">GitHub Portfolio</a>
   </footer>
 </body>
 </html>
